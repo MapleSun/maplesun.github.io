@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="SparkInitializing Spark in Java12345import org.apache.spark.SparkConfimport org.apache.spark.SparkContextimport org.apache.spark.SparkContext._val conf = new SparkConf().setMaster(&amp;quot;local&amp;quot;).s">
+<meta name="keywords" content="Spark,Scala">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spark and Scala">
+<meta property="og:url" content="http://yoursite.com/2018/06/02/Spark-and-Scala/index.html">
+<meta property="og:site_name" content="MapleSYJ&#39;s blog">
+<meta property="og:description" content="SparkInitializing Spark in Java12345import org.apache.spark.SparkConfimport org.apache.spark.SparkContextimport org.apache.spark.SparkContext._val conf = new SparkConf().setMaster(&amp;quot;local&amp;quot;).s">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-06-02T17:06:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spark and Scala">
+<meta name="twitter:description" content="SparkInitializing Spark in Java12345import org.apache.spark.SparkConfimport org.apache.spark.SparkContextimport org.apache.spark.SparkContext._val conf = new SparkConf().setMaster(&amp;quot;local&amp;quot;).s">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/02/Spark-and-Scala/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Spark and Scala | MapleSYJ's blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MapleSYJ's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/02/Spark-and-Scala/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MapleSYJ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/profile.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MapleSYJ's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Spark and Scala
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-06-02 10:06:26 / Modified: 10:06:56" itemprop="dateCreated datePublished" datetime="2018-06-02T10:06:26-07:00">2018-06-02</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Spark"><a href="#Spark" class="headerlink" title="Spark"></a>Spark</h1><h3 id="Initializing-Spark-in-Java"><a href="#Initializing-Spark-in-Java" class="headerlink" title="Initializing Spark in Java"></a>Initializing Spark in Java</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import org.apache.spark.SparkConf</span><br><span class="line">import org.apache.spark.SparkContext</span><br><span class="line">import org.apache.spark.SparkContext._</span><br><span class="line">val conf = new SparkConf().setMaster(&quot;local&quot;).setAppName(&quot;My App&quot;)</span><br><span class="line">val sc = new SparkContext(conf)</span><br></pre></td></tr></table></figure>
+<h3 id="Definiation"><a href="#Definiation" class="headerlink" title="Definiation"></a>Definiation</h3><p>RDD: resilient distributed dataset<br>sc: SparkContext</p>
+<h1 id="Scala-Syntax"><a href="#Scala-Syntax" class="headerlink" title="Scala Syntax"></a>Scala Syntax</h1><p><strong>To install</strong>: The repository is too old(2.9.2) use the command</p>
+<p>wget <a href="http://www.scala-lang.org/files/archive/scala-2.11.7.deb" target="_blank" rel="noopener">www.scala-lang.org/files/archive/scala-2.11.7.deb</a><br>sudo dpkg -i scala-2.11.7.deb</p>
+<p><strong>syntax</strong>: val <identifier>[: <type>] = <data>  //[: type] is optional</data></type></identifier></p>
+<p>REPL: scala Interpreter</p>
+<ul>
+<li>val for value is immutable</li>
+<li>var for variable is mutable</li>
+</ul>
+<p>since value is immutable we perfer value to prevent unexpected change</p>
+<h3 id="numeric"><a href="#numeric" class="headerlink" title="numeric"></a>numeric</h3><p>Scala does not allow automatic conversion from higher ranked types to lower ranked types. You can choose to manually convert between types using the <em>toType</em> methods available on all numeric types.</p>
+<h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><p>A multiline String can be created using triple-quotes. Multiline strings are literal, and<br>so do not recognize the use of backslashes as the start of special characters:</p>
+<p>You will need the optional braces if you have any nonword characters in your reference (such as a calculation), or if your reference can’t be distinguished from the surrounding text: ${<value name="">} or ${<value name=""> * num}</value></value></p>
+<h3 id="Regular-expression"><a href="#Regular-expression" class="headerlink" title="Regular expression"></a>Regular expression</h3><p><strong><em>Syntax</em></strong>: val <regex value="">(<identifier>) = <input string=""></identifier></regex></p>
+<ul>
+<li>The value will be stored in identifier</li>
+<li>convert a string to a regular ex‐ pression type by invoking its r operator.</li>
+</ul>
+<p>We’ll use multiline strings to store our regular expression pattern, because they are literal and allow us to write a backslash without a second, escaping backslash:</p>
+<h3 id="Type"><a href="#Type" class="headerlink" title="Type"></a>Type</h3><ul>
+<li>Any is the root of scala type</li>
+<li>ref is access via memory reference</li>
+<li>Nothing is a subtype of every other type and exists to provide a compatible return type for operations that significantly affect a program’s flow. </li>
+<li>Null, a subtype of all AnyRef types that exists to provide a type for the keyword null. such that the variable does not point to any string instance in memory.</li>
+<li>&amp; and | will always check the second variable or expression. &amp;&amp; and || are lazy they only check the first one. If the first one is sufficient, it stops.</li>
+<li>Scala does not support automatic conversion of other types to Booleans</li>
+<li>Unit type is used to describe the function doesnt return anything. Like the void in C++ &amp;&amp; Java. Unit literally equal to () Unit = ()</li>
+</ul>
+<h4 id="Type-Operation"><a href="#Type-Operation" class="headerlink" title="Type Operation"></a>Type Operation</h4><p><strong>Syntax</strong>: val.<type operation=""></type></p>
+<p><strong>perfer to<type> avoid asInstanceof[<type>]</type></type></strong></p>
+<ul>
+<li>asInstanceOf[<type>]: change to type </type></li>
+<li>getClass: return type of value</li>
+<li>isInstanceOf: return true if the value has the given type</li>
+<li>hashCode: Returns the hash code of the value, useful for hash-based collections</li>
+<li>to<type>: Conversion functions to convert a value to a compatible value.</type></li>
+<li>toString: Renders the value to aString.</li>
+</ul>
+<h3 id="Tuple"><a href="#Tuple" class="headerlink" title="Tuple"></a>Tuple</h3><p><strong>Syntax</strong>: ( <value 1="">, <value 2="">[, <value 3="">…] )</value></value></value></p>
+<p>access an individual element from a tuple by its 1-based index (e.g., where the first element is 1, second is 2, etc.):</p>
+<p><em>example</em>: tuplename._1</p>
+<p>An alternate form of creating a 2-sized tuple is with the relation operator (-&gt;). This is a popular shortcut for representing key-value pairs in tuples:</p>
+<p>scala&gt; val red = “red” -&gt; “0xff0000”<br>red: (String, String) = (red,0xff0000)</p>
+<h3 id="Expression"><a href="#Expression" class="headerlink" title="Expression"></a>Expression</h3><h4 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h4><p><strong>if-else</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if (&lt;Boolean expression&gt;) &lt;expression&gt;</span><br><span class="line">else &lt;expression&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>match</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;expression&gt; match &#123;</span><br><span class="line">      case &lt;pattern match&gt; =&gt; &lt;expression&gt;</span><br><span class="line">      [case...]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>Matching with Wildcard Patterns</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">case &lt;identifier&gt; =&gt; &lt;one or more expressions&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>A Wildcard Operator Pattern</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">case _ =&gt; &lt;one or more expressions&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>A Pattern Guard</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">case &lt;pattern&gt; if &lt;Boolean expression&gt; =&gt; &lt;one or more expressions&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>Specifying a Pattern Variable</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">case &lt;identifier&gt;: &lt;type&gt; =&gt; &lt;one or more expressions&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Loops"><a href="#Loops" class="headerlink" title="Loops"></a>Loops</h2><h3 id="Range-and-For-Loop"><a href="#Range-and-For-Loop" class="headerlink" title="Range and For-Loop"></a>Range and For-Loop</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//range</span><br><span class="line">&lt;starting integer&gt; [to|until] &lt;ending integer&gt; [by increment]</span><br><span class="line"></span><br><span class="line">//for   the yield keyword to con‐ vert the entire loop into an expression that returns the collection:</span><br><span class="line">for (&lt;identifier&gt; &lt;- &lt;iterator&gt;) [yield] [&lt;expression&gt;]</span><br><span class="line"></span><br><span class="line">//An Iterator Guard</span><br><span class="line">for (&lt;identifier&gt; &lt;- &lt;iterator&gt; if &lt;Boolean expression&gt;) ...</span><br></pre></td></tr></table></figure>
+<h2 id="Value-Binding"><a href="#Value-Binding" class="headerlink" title="Value Binding"></a>Value Binding</h2><p>Syntax:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// Value Binding in For-Loops</span><br><span class="line">for (&lt;identifier&gt; &lt;- &lt;iterator&gt;; &lt;identifier&gt; = &lt;expression&gt;) ...</span><br></pre></td></tr></table></figure></p>
+<h2 id="While"><a href="#While" class="headerlink" title="While"></a>While</h2><p>Syntax:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// A While Loop</span><br><span class="line">while (&lt;Boolean expression&gt;) statement</span><br></pre></td></tr></table></figure></p>
+<h2 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h2><p>Syntax:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">Defining an Input-less Function</span><br><span class="line">    def &lt;identifier&gt; = &lt;expression&gt;</span><br><span class="line"></span><br><span class="line">Defining a Function with a Return Type</span><br><span class="line">    def &lt;identifier&gt;: &lt;type&gt; = &lt;expression&gt;</span><br><span class="line">    </span><br><span class="line">Defining a Function</span><br><span class="line">    def &lt;identifier&gt;(&lt;identifier&gt;: &lt;type&gt;[, ... ]): &lt;type&gt; = &lt;expression&gt;</span><br><span class="line">    </span><br><span class="line">Defining a Function with Empty Parentheses</span><br><span class="line">    def &lt;identifier&gt;()[: &lt;type&gt;] = &lt;expression&gt;</span><br><span class="line">    </span><br><span class="line">Invoking a Function with an Expression Block</span><br><span class="line">    &lt;function identifier&gt; &lt;expression block&gt;</span><br><span class="line"></span><br><span class="line">Specifying a Parameter by Name</span><br><span class="line">&lt;function name&gt;(&lt;parameter&gt; = &lt;value&gt;)</span><br><span class="line"></span><br><span class="line">Specifying a Default Value for a Function Parameter</span><br><span class="line">def &lt;identifier&gt;(&lt;identifier&gt;: &lt;type&gt; = &lt;value&gt;): &lt;type&gt;</span><br><span class="line"></span><br><span class="line">Defining a Function’s Type Parameters</span><br><span class="line">def &lt;function-name&gt;[type-name](parameter-name&gt;: &lt;type-name&gt;): &lt;type-name&gt;...</span><br><span class="line"></span><br><span class="line"> A Function Type</span><br><span class="line">    ([&lt;type&gt;, ...]) =&gt; &lt;type&gt;</span><br><span class="line">    </span><br><span class="line">Assigning a Function with the Wildcard Operator</span><br><span class="line">    val &lt;identifier&gt; = &lt;function name&gt; _</span><br><span class="line"></span><br><span class="line">Writing a Function Literal    </span><br><span class="line">([&lt;identifier&gt;: &lt;type&gt;, ... ]) =&gt; &lt;expression&gt;</span><br><span class="line"></span><br><span class="line">Specifying a By-Name Parameter</span><br><span class="line">    &lt;identifier&gt;: =&gt; &lt;type&gt;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Spark/" rel="tag"># Spark</a>
+          
+            <a href="/tags/Scala/" rel="tag"># Scala</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/01/27. Remove Element/" rel="next" title="27. remove Element">
+                <i class="fa fa-chevron-left"></i> 27. remove Element
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/profile.jpg"
+                alt="MapleSYJ" />
+            
+              <p class="site-author-name" itemprop="name">MapleSYJ</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Spark"><span class="nav-number">1.</span> <span class="nav-text">Spark</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Initializing-Spark-in-Java"><span class="nav-number">1.0.1.</span> <span class="nav-text">Initializing Spark in Java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Definiation"><span class="nav-number">1.0.2.</span> <span class="nav-text">Definiation</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Scala-Syntax"><span class="nav-number">2.</span> <span class="nav-text">Scala Syntax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#numeric"><span class="nav-number">2.0.1.</span> <span class="nav-text">numeric</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String"><span class="nav-number">2.0.2.</span> <span class="nav-text">String</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Regular-expression"><span class="nav-number">2.0.3.</span> <span class="nav-text">Regular expression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Type"><span class="nav-number">2.0.4.</span> <span class="nav-text">Type</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Type-Operation"><span class="nav-number">2.0.4.1.</span> <span class="nav-text">Type Operation</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tuple"><span class="nav-number">2.0.5.</span> <span class="nav-text">Tuple</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Expression"><span class="nav-number">2.0.6.</span> <span class="nav-text">Expression</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Syntax"><span class="nav-number">2.0.6.1.</span> <span class="nav-text">Syntax</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Loops"><span class="nav-number">2.1.</span> <span class="nav-text">Loops</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Range-and-For-Loop"><span class="nav-number">2.1.1.</span> <span class="nav-text">Range and For-Loop</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Value-Binding"><span class="nav-number">2.2.</span> <span class="nav-text">Value Binding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#While"><span class="nav-number">2.3.</span> <span class="nav-text">While</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Function"><span class="nav-number">2.4.</span> <span class="nav-text">Function</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MapleSYJ</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.6.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
