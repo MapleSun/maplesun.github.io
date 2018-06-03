@@ -123,7 +123,7 @@
 <meta property="og:site_name" content="MapleSYJ&#39;s blog">
 <meta property="og:description" content="QuestionGiven a sorted array nums, remove the duplicates in-place such that duplicates appeared at most twice and return the new length. Do not allocate extra space for another array, you must do this">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-02T19:57:59.000Z">
+<meta property="og:updated_time" content="2018-06-03T03:35:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="80. Remove Duplicates from Sorted Array II">
 <meta name="twitter:description" content="QuestionGiven a sorted array nums, remove the duplicates in-place such that duplicates appeared at most twice and return the new length. Do not allocate extra space for another array, you must do this">
@@ -346,7 +346,7 @@
                 
               
 
-              <time title="Created: 2018-06-02 12:27:39 / Modified: 12:57:59" itemprop="dateCreated datePublished" datetime="2018-06-02T12:27:39-07:00">2018-06-02</time>
+              <time title="Created: 2018-06-02 12:27:39 / Modified: 20:35:19" itemprop="dateCreated datePublished" datetime="2018-06-02T12:27:39-07:00">2018-06-02</time>
             
 
             
@@ -433,7 +433,8 @@
 </li>
 </ol>
 <p><strong>本来在legal state这个部分没有想明白这里为什么需要交换, 本来认为legal state，cnt没有到2 所以只要cur++就可以了。 但在下面的情况</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">test case[0,0,1,1,1,1,2,3,3] 过不了。</span><br><span class="line">WA: [0,0,1,1,2,3,2]</span><br><span class="line">[0,0,1,1,2,1,2,3,3] cnt = 1</span><br><span class="line">         c     f</span><br><span class="line">[0,0,1,1,2,3,2,3,3] cnt = 1 此时cnt还没有增加，如果只是cur++则出现WA，</span><br><span class="line">           c     f</span><br></pre></td></tr></table></figure></p>
-<p>因为即使相同，第二个3没有在正确的位置上，换句话说就是<strong>只要是legal的就要换到正确的位置上因为fast的位置是不确定的</strong></p>
+<p>因为即使相同，第二个3没有在正确的位置上，换句话说就是<strong>只要是legal的就要换到正确的位置上因为fast的位置是不确定的, 正确的位置总是cur+1</strong></p>
+<h2 id="Complexity"><a href="#Complexity" class="headerlink" title="Complexity"></a>Complexity</h2><p>Time Complexity: O(n)</p>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeDuplicates</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (nums.length &lt; <span class="number">2</span>) <span class="keyword">return</span> nums.length;</span><br><span class="line">    <span class="keyword">int</span> cur = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> f = <span class="number">1</span>; f &lt; nums.length; f++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[f] == nums[f - <span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="keyword">if</span> (cnt &lt; <span class="number">2</span>) &#123;</span><br><span class="line">                nums[cur++] = nums[f];</span><br><span class="line">            &#125;</span><br><span class="line">            cnt++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            nums[cur++] = nums[f];</span><br><span class="line">            cnt = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cur;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -478,6 +479,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/02/189-Rotate-Array/" rel="prev" title="189. Rotate Array">
+                189. Rotate Array <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -555,7 +560,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -631,7 +636,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Question"><span class="nav-number">1.</span> <span class="nav-text">Question</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis"><span class="nav-number">2.</span> <span class="nav-text">Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Two-situation"><span class="nav-number">2.1.</span> <span class="nav-text">Two situation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">3.</span> <span class="nav-text">Solution</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Question"><span class="nav-number">1.</span> <span class="nav-text">Question</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis"><span class="nav-number">2.</span> <span class="nav-text">Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Two-situation"><span class="nav-number">2.1.</span> <span class="nav-text">Two situation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Complexity"><span class="nav-number">3.</span> <span class="nav-text">Complexity</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">4.</span> <span class="nav-text">Solution</span></a></li></ol></div>
             
 
           </div>
