@@ -115,25 +115,25 @@
 
 
 
-  <meta name="description" content="QuestionGiven an array nums and a value val, remove all instances of that value in-place and return the new length. Do not allocate extra space for another array, you must do this by modifying the inp">
-<meta name="keywords" content="Array,Two Pointers">
+  <meta name="description" content="QuestionThere are N gas stations along a circular route, where the amount of gas at station i is gas[i]. You have a car with an unlimited gas tank and it costs cost[i] of gas to travel from station i">
+<meta name="keywords" content="Array,Greedy">
 <meta property="og:type" content="article">
-<meta property="og:title" content="27. remove Element">
-<meta property="og:url" content="http://yoursite.com/2018/06/01/27. Remove Element/index.html">
+<meta property="og:title" content="134. Gas Station">
+<meta property="og:url" content="http://yoursite.com/2018/06/04/134-Gas-Station/index.html">
 <meta property="og:site_name" content="MapleSYJ&#39;s blog">
-<meta property="og:description" content="QuestionGiven an array nums and a value val, remove all instances of that value in-place and return the new length. Do not allocate extra space for another array, you must do this by modifying the inp">
+<meta property="og:description" content="QuestionThere are N gas stations along a circular route, where the amount of gas at station i is gas[i]. You have a car with an unlimited gas tank and it costs cost[i] of gas to travel from station i">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-02T17:59:51.000Z">
+<meta property="og:updated_time" content="2018-06-04T09:44:04.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="27. remove Element">
-<meta name="twitter:description" content="QuestionGiven an array nums and a value val, remove all instances of that value in-place and return the new length. Do not allocate extra space for another array, you must do this by modifying the inp">
+<meta name="twitter:title" content="134. Gas Station">
+<meta name="twitter:description" content="QuestionThere are N gas stations along a circular route, where the amount of gas at station i is gas[i]. You have a car with an unlimited gas tank and it costs cost[i] of gas to travel from station i">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/01/27. Remove Element/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/04/134-Gas-Station/"/>
 
 
 
@@ -143,7 +143,7 @@
   };
 </script>
 
-  <title>27. remove Element | MapleSYJ's blog</title>
+  <title>134. Gas Station | MapleSYJ's blog</title>
   
 
 
@@ -304,7 +304,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/01/27. Remove Element/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/04/134-Gas-Station/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MapleSYJ">
@@ -321,7 +321,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">27. remove Element
+          <h1 class="post-title" itemprop="name headline">134. Gas Station
               
             
           </h1>
@@ -346,24 +346,12 @@
                 
               
 
-              <time title="Created: 2018-06-01 11:17:53" itemprop="dateCreated datePublished" datetime="2018-06-01T11:17:53-07:00">2018-06-01</time>
+              <time title="Created: 2018-06-04 02:34:14 / Modified: 02:44:04" itemprop="dateCreated datePublished" datetime="2018-06-04T02:34:14-07:00">2018-06-04</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2018-06-02 10:59:51" itemprop="dateModified" datetime="2018-06-02T10:59:51-07:00">2018-06-02</time>
               
             
           </span>
@@ -421,21 +409,19 @@
       
 
       
-        <h3 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h3><p>Given an array nums and a value val, remove all instances of that value in-place and return the new length.</p>
-<p>Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.</p>
-<p>The order of elements can be changed. It doesn’t matter what you leave beyond the new length.</p>
-<a id="more"></a>
-<h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><p><strong>三种情况</strong></p>
+        <h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p>There are N gas stations along a circular route, where the amount of gas at station i is gas[i].</p>
+<p>You have a car with an unlimited gas tank and it costs cost[i] of gas to travel from station i to its next station (i+1). You begin the journey with an empty tank at one of the gas stations.</p>
+<p>Return the starting gas station’s index if you can travel around the circuit once in the clockwise direction, otherwise return -1.</p>
+<p>Note:</p>
+<p>If there exists a solution, it is guaranteed to be unique.<br>Both input arrays are non-empty and have the same length.<br>Each element in the input arrays is a non-negative integer.</p>
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>一开始想的是dfs，因为感觉很像dfs，从第一个点开始尝试看能不能走通，（<strong>未完成</strong>）</p>
+<p><strong>Discussion</strong></p>
 <ol>
-<li>如果nums[end] == val，end–，直到nums[end] != val</li>
-<li>如果nums[start] == val, 交换nums[start] and nums[end], start++; end–</li>
-<li>nums[start] != val, start++, 继续循环</li>
+<li>很容易想到，如果 总gas &lt; 总cost，return -1；</li>
+<li>如果前面所有 gas-cost 加起来小于0， 那么前面的gas stattion都不能作为start postion</li>
 </ol>
-<p><em>Java only pass by value. Java does not pass by reference</em></p>
-<h3 id="Complexity"><a href="#Complexity" class="headerlink" title="Complexity"></a>Complexity</h3><p>Worst Case:</p>
-<p>All numbers are target num. Time Complexity is <strong>O(n)</strong></p>
-<p>It is In-Place use <strong>O(1)</strong> to swap</p>
-<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeElement</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> val)</span> </span>&#123;·</span><br><span class="line">        <span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">0</span>, end = nums.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (start &lt;= end) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[end] == val) &#123;</span><br><span class="line">                end--;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[start] == val) &#123;</span><br><span class="line">                <span class="keyword">int</span> temp = nums[start];</span><br><span class="line">                nums[start] = nums[end];</span><br><span class="line">                nums[end] = temp;</span><br><span class="line">                start++;</span><br><span class="line">                end--;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                start++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> end + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Compleixty"><a href="#Compleixty" class="headerlink" title="Compleixty"></a>Compleixty</h2><p>Time：O(n)<br>Space: O(1)</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">canCompleteCircuit</span><span class="params">(<span class="keyword">int</span>[] gas, <span class="keyword">int</span>[] cost)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> tank = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; gas.length; i++)</span><br><span class="line">        tank += gas[i] - cost[i];</span><br><span class="line">    <span class="keyword">if</span>(tank &lt; <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> start = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> accumulate = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; gas.length; i++) &#123;</span><br><span class="line">        accumulate += gas[i] - cost[i];</span><br><span class="line">        <span class="keyword">if</span>(accumulate &lt; <span class="number">0</span>)&#123;</span><br><span class="line">            start = i + <span class="number">1</span>;</span><br><span class="line">            accumulate = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> start;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -458,7 +444,7 @@
           
             <a href="/tags/Array/" rel="tag"># Array</a>
           
-            <a href="/tags/Two-Pointers/" rel="tag"># Two Pointers</a>
+            <a href="/tags/Greedy/" rel="tag"># Greedy</a>
           
         </div>
       
@@ -471,8 +457,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/01/92. Backpack/" rel="next" title="92. Backpack">
-                <i class="fa fa-chevron-left"></i> 92. Backpack
+              <a href="/2018/06/03/299-Bulls-and-Cows/" rel="next" title="299. Bulls and Cows">
+                <i class="fa fa-chevron-left"></i> 299. Bulls and Cows
               </a>
             
           </div>
@@ -480,10 +466,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/02/Spark-and-Scala/" rel="prev" title="Spark and Scala">
-                Spark and Scala <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -645,7 +627,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Question"><span class="nav-number">1.</span> <span class="nav-text">Question</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Analysis"><span class="nav-number">2.</span> <span class="nav-text">Analysis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Complexity"><span class="nav-number">3.</span> <span class="nav-text">Complexity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution"><span class="nav-number">4.</span> <span class="nav-text">Solution</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Question"><span class="nav-number">1.</span> <span class="nav-text">Question</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis"><span class="nav-number">2.</span> <span class="nav-text">Analysis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Compleixty"><span class="nav-number">3.</span> <span class="nav-text">Compleixty</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">4.</span> <span class="nav-text">Solution</span></a></li></ol></div>
             
 
           </div>

@@ -115,25 +115,25 @@
 
 
 
-  <meta name="description" content="QuestionGiven an array nums and a value val, remove all instances of that value in-place and return the new length. Do not allocate extra space for another array, you must do this by modifying the inp">
-<meta name="keywords" content="Array,Two Pointers">
+  <meta name="description" content="QuestionYou are playing the following Bulls and Cows game with your friend: You write down a number and ask your friend to guess what the number is. Each time your friend makes a guess, you provide a">
+<meta name="keywords" content="Array">
 <meta property="og:type" content="article">
-<meta property="og:title" content="27. remove Element">
-<meta property="og:url" content="http://yoursite.com/2018/06/01/27. Remove Element/index.html">
+<meta property="og:title" content="299. Bulls and Cows">
+<meta property="og:url" content="http://yoursite.com/2018/06/03/299-Bulls-and-Cows/index.html">
 <meta property="og:site_name" content="MapleSYJ&#39;s blog">
-<meta property="og:description" content="QuestionGiven an array nums and a value val, remove all instances of that value in-place and return the new length. Do not allocate extra space for another array, you must do this by modifying the inp">
+<meta property="og:description" content="QuestionYou are playing the following Bulls and Cows game with your friend: You write down a number and ask your friend to guess what the number is. Each time your friend makes a guess, you provide a">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-02T17:59:51.000Z">
+<meta property="og:updated_time" content="2018-06-04T09:33:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="27. remove Element">
-<meta name="twitter:description" content="QuestionGiven an array nums and a value val, remove all instances of that value in-place and return the new length. Do not allocate extra space for another array, you must do this by modifying the inp">
+<meta name="twitter:title" content="299. Bulls and Cows">
+<meta name="twitter:description" content="QuestionYou are playing the following Bulls and Cows game with your friend: You write down a number and ask your friend to guess what the number is. Each time your friend makes a guess, you provide a">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/01/27. Remove Element/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/03/299-Bulls-and-Cows/"/>
 
 
 
@@ -143,7 +143,7 @@
   };
 </script>
 
-  <title>27. remove Element | MapleSYJ's blog</title>
+  <title>299. Bulls and Cows | MapleSYJ's blog</title>
   
 
 
@@ -304,7 +304,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/01/27. Remove Element/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/03/299-Bulls-and-Cows/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MapleSYJ">
@@ -321,7 +321,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">27. remove Element
+          <h1 class="post-title" itemprop="name headline">299. Bulls and Cows
               
             
           </h1>
@@ -346,7 +346,7 @@
                 
               
 
-              <time title="Created: 2018-06-01 11:17:53" itemprop="dateCreated datePublished" datetime="2018-06-01T11:17:53-07:00">2018-06-01</time>
+              <time title="Created: 2018-06-03 21:25:19" itemprop="dateCreated datePublished" datetime="2018-06-03T21:25:19-07:00">2018-06-03</time>
             
 
             
@@ -363,7 +363,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-06-02 10:59:51" itemprop="dateModified" datetime="2018-06-02T10:59:51-07:00">2018-06-02</time>
+                <time title="Modified: 2018-06-04 02:33:49" itemprop="dateModified" datetime="2018-06-04T02:33:49-07:00">2018-06-04</time>
               
             
           </span>
@@ -421,21 +421,22 @@
       
 
       
-        <h3 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h3><p>Given an array nums and a value val, remove all instances of that value in-place and return the new length.</p>
-<p>Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.</p>
-<p>The order of elements can be changed. It doesn’t matter what you leave beyond the new length.</p>
-<a id="more"></a>
-<h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><p><strong>三种情况</strong></p>
-<ol>
-<li>如果nums[end] == val，end–，直到nums[end] != val</li>
-<li>如果nums[start] == val, 交换nums[start] and nums[end], start++; end–</li>
-<li>nums[start] != val, start++, 继续循环</li>
-</ol>
-<p><em>Java only pass by value. Java does not pass by reference</em></p>
-<h3 id="Complexity"><a href="#Complexity" class="headerlink" title="Complexity"></a>Complexity</h3><p>Worst Case:</p>
-<p>All numbers are target num. Time Complexity is <strong>O(n)</strong></p>
-<p>It is In-Place use <strong>O(1)</strong> to swap</p>
-<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeElement</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> val)</span> </span>&#123;·</span><br><span class="line">        <span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">0</span>, end = nums.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (start &lt;= end) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[end] == val) &#123;</span><br><span class="line">                end--;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[start] == val) &#123;</span><br><span class="line">                <span class="keyword">int</span> temp = nums[start];</span><br><span class="line">                nums[start] = nums[end];</span><br><span class="line">                nums[end] = temp;</span><br><span class="line">                start++;</span><br><span class="line">                end--;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                start++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> end + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p>You are playing the following Bulls and Cows game with your friend: You write down a number and ask your friend to guess what the number is. Each time your friend makes a guess, you provide a hint that indicates how many digits in said guess match your secret number exactly in both digit and position (called “bulls”) and how many digits match the secret number but locate in the wrong position (called “cows”). Your friend will use successive guesses and hints to eventually derive the secret number.</p>
+<p>Write a function to return a hint according to the secret number and friend’s guess, use A to indicate the bulls and B to indicate the cows. </p>
+<p>Please note that both secret number and friend’s guess may contain duplicate digits.</p>
+<p>Note: You may assume that the secret number and your friend’s guess only contain digits, and their lengths are always equal.</p>
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>有点像anagram，可以通过一个数组代替hashmap记录，可以做到one pass</p>
+<ul>
+<li>bulls 很容易， secret.charAt(i) == guess.charAt(i) bulls++</li>
+<li>cows <ul>
+<li>if (numbers[secret.charAt(i)-‘0’]++ &lt; 0) cows++;</li>
+<li>if (numbers[guess.charAt(i)-‘0’]– &gt; 0) cows++;</li>
+</ul>
+</li>
+</ul>
+<h2 id="Complexity"><a href="#Complexity" class="headerlink" title="Complexity"></a>Complexity</h2><p>Time: O(n)<br>Space: O(1)</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getHint</span><span class="params">(String secret, String guess)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len = secret.length();</span><br><span class="line">    <span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">256</span>];</span><br><span class="line">    <span class="keyword">int</span> A = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> B = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (secret.charAt(i) == guess.charAt(i)) &#123;</span><br><span class="line">            A++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            arr[secret.charAt(i)]++;</span><br><span class="line">            arr[guess.charAt(i)]--;    </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (arr[i] &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            B += arr[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> A+<span class="string">"A"</span>+(len+B-A)+<span class="string">"B"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>One Pass<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getHint</span><span class="params">(String secret, String guess)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> bulls = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> cows = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span>[] numbers = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;secret.length(); i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (secret.charAt(i) == guess.charAt(i)) bulls++;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (numbers[secret.charAt(i)-<span class="string">'0'</span>]++ &lt; <span class="number">0</span>) cows++;</span><br><span class="line">            <span class="keyword">if</span> (numbers[guess.charAt(i)-<span class="string">'0'</span>]-- &gt; <span class="number">0</span>) cows++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> bulls + <span class="string">"A"</span> + cows + <span class="string">"B"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -458,8 +459,6 @@
           
             <a href="/tags/Array/" rel="tag"># Array</a>
           
-            <a href="/tags/Two-Pointers/" rel="tag"># Two Pointers</a>
-          
         </div>
       
 
@@ -471,8 +470,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/01/92. Backpack/" rel="next" title="92. Backpack">
-                <i class="fa fa-chevron-left"></i> 92. Backpack
+              <a href="/2018/06/03/June-Plan/" rel="next" title="June Plan">
+                <i class="fa fa-chevron-left"></i> June Plan
               </a>
             
           </div>
@@ -481,8 +480,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/06/02/Spark-and-Scala/" rel="prev" title="Spark and Scala">
-                Spark and Scala <i class="fa fa-chevron-right"></i>
+              <a href="/2018/06/04/134-Gas-Station/" rel="prev" title="134. Gas Station">
+                134. Gas Station <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -645,7 +644,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Question"><span class="nav-number">1.</span> <span class="nav-text">Question</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Analysis"><span class="nav-number">2.</span> <span class="nav-text">Analysis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Complexity"><span class="nav-number">3.</span> <span class="nav-text">Complexity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution"><span class="nav-number">4.</span> <span class="nav-text">Solution</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Question"><span class="nav-number">1.</span> <span class="nav-text">Question</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis"><span class="nav-number">2.</span> <span class="nav-text">Analysis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Complexity"><span class="nav-number">3.</span> <span class="nav-text">Complexity</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">4.</span> <span class="nav-text">Solution</span></a></li></ol></div>
             
 
           </div>
