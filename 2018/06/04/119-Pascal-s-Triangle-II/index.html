@@ -115,25 +115,24 @@
 
 
 
-  <meta name="description" content="QuestionGiven a sorted array nums, remove the duplicates in-place such that duplicates appeared at most twice and return the new length. Do not allocate extra space for another array, you must do this">
-<meta name="keywords" content="Array,Two Pointers">
+  <meta name="description" content="QuestionGiven a non-negative index k where k ≤ 33, return the kth index row of the Pascal’s triangle. Note that the row index starts from 0. Analysis本来以为很简单的一道题，确卡了我半天，第一个错误时愚蠢的把prev的赋值放在了小循环里， 第二个错误是">
 <meta property="og:type" content="article">
-<meta property="og:title" content="80. Remove Duplicates from Sorted Array II">
-<meta property="og:url" content="http://yoursite.com/2018/06/02/80-Remove-Duplicates-from-Sorted-Array-II/index.html">
+<meta property="og:title" content="119. Pascal&#39;s Triangle II">
+<meta property="og:url" content="http://yoursite.com/2018/06/04/119-Pascal-s-Triangle-II/index.html">
 <meta property="og:site_name" content="MapleSYJ&#39;s blog">
-<meta property="og:description" content="QuestionGiven a sorted array nums, remove the duplicates in-place such that duplicates appeared at most twice and return the new length. Do not allocate extra space for another array, you must do this">
+<meta property="og:description" content="QuestionGiven a non-negative index k where k ≤ 33, return the kth index row of the Pascal’s triangle. Note that the row index starts from 0. Analysis本来以为很简单的一道题，确卡了我半天，第一个错误时愚蠢的把prev的赋值放在了小循环里， 第二个错误是">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-03T18:57:14.000Z">
+<meta property="og:updated_time" content="2018-06-04T22:09:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="80. Remove Duplicates from Sorted Array II">
-<meta name="twitter:description" content="QuestionGiven a sorted array nums, remove the duplicates in-place such that duplicates appeared at most twice and return the new length. Do not allocate extra space for another array, you must do this">
+<meta name="twitter:title" content="119. Pascal&#39;s Triangle II">
+<meta name="twitter:description" content="QuestionGiven a non-negative index k where k ≤ 33, return the kth index row of the Pascal’s triangle. Note that the row index starts from 0. Analysis本来以为很简单的一道题，确卡了我半天，第一个错误时愚蠢的把prev的赋值放在了小循环里， 第二个错误是">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/02/80-Remove-Duplicates-from-Sorted-Array-II/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/04/119-Pascal-s-Triangle-II/"/>
 
 
 
@@ -143,7 +142,7 @@
   };
 </script>
 
-  <title>80. Remove Duplicates from Sorted Array II | MapleSYJ's blog</title>
+  <title>119. Pascal's Triangle II | MapleSYJ's blog</title>
   
 
 
@@ -304,7 +303,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/02/80-Remove-Duplicates-from-Sorted-Array-II/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/04/119-Pascal-s-Triangle-II/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MapleSYJ">
@@ -321,7 +320,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">80. Remove Duplicates from Sorted Array II
+          <h1 class="post-title" itemprop="name headline">119. Pascal's Triangle II
               
             
           </h1>
@@ -346,53 +345,16 @@
                 
               
 
-              <time title="Created: 2018-06-02 12:27:39" itemprop="dateCreated datePublished" datetime="2018-06-02T12:27:39-07:00">2018-06-02</time>
+              <time title="Created: 2018-06-04 14:52:37 / Modified: 15:09:05" itemprop="dateCreated datePublished" datetime="2018-06-04T14:52:37-07:00">2018-06-04</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2018-06-03 11:57:14" itemprop="dateModified" datetime="2018-06-03T11:57:14-07:00">2018-06-03</time>
               
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a></span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/LeetCode/Array/" itemprop="url" rel="index"><span itemprop="name">Array</span></a></span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -421,33 +383,27 @@
       
 
       
-        <h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p>Given a sorted array nums, remove the duplicates in-place such that duplicates appeared at most twice and return the new length.</p>
-<p>Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.</p>
-<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>This question is the follow-up of <a href="../26-Remove-Duplicates-from-Sorted-Array/index.html">Remove-Duplicates-from Sorted Array</a>.</p>
-<h3 id="Two-situation"><a href="#Two-situation" class="headerlink" title="Two situation"></a>Two situation</h3><ol>
-<li>nums[fast] == nums[fast - 1]<ol>
-<li>cnt &lt; 2: <ul>
-<li>nums[cur++] = nums[f] (legal state)</li>
-<li>cnt++</li>
+        <h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p>Given a non-negative index k where k ≤ 33, return the kth index row of the Pascal’s triangle.</p>
+<p>Note that the row index starts from 0.</p>
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>本来以为很简单的一道题，确卡了我半天，第一个错误时愚蠢的把prev的赋值放在了小循环里， 第二个错误是对ArrayList的set 和 add method 不够熟悉， 我的思路是用一个prev ArrayList去记录上一行的结果。<br>在这个过程中一定要学会ArrayList的set和addmethod的区别</p>
+<ul>
+<li>add<ul>
+<li>add(E e) Appends the specified element to the end of this list. </li>
+<li>add(int index, E element) Inserts the specified element at the specified position in this list.</li>
 </ul>
 </li>
-<li>cnt &gt;= 2: <ul>
-<li>cur doesn’t move</li>
-<li>cnt++</li>
+<li>set<ul>
+<li>set(int index, E element) Replaces the element at the specified position in this list with the specified element.</li>
 </ul>
 </li>
-</ol>
-</li>
-<li>nums[fast] == nums[fast - 1]<ul>
-<li>nums[cur++] = nums[f]</li>
-<li>cnt reset, cnt = 1</li>
 </ul>
-</li>
-</ol>
-<p><strong>本来在legal state这个部分没有想明白这里为什么需要交换, 本来认为legal state，cnt没有到2 所以只要cur++就可以了。 但在下面的情况</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">test case[0,0,1,1,1,1,2,3,3] 过不了。</span><br><span class="line">WA: [0,0,1,1,2,3,2]</span><br><span class="line">[0,0,1,1,2,1,2,3,3] cnt = 1</span><br><span class="line">         c     f</span><br><span class="line">[0,0,1,1,2,3,2,3,3] cnt = 1 此时cnt还没有增加，如果只是cur++则出现WA，</span><br><span class="line">           c     f</span><br></pre></td></tr></table></figure></p>
-<p>因为即使相同，第二个3没有在正确的位置上，换句话说就是<strong>只要是legal的就要换到正确的位置上因为fast的位置是不确定的, 正确的位置总是cur+1</strong></p>
-<h2 id="Complexity"><a href="#Complexity" class="headerlink" title="Complexity"></a>Complexity</h2><p>Time Complexity: O(n)</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeDuplicates</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (nums.length &lt; <span class="number">2</span>) <span class="keyword">return</span> nums.length;</span><br><span class="line">    <span class="keyword">int</span> cur = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> f = <span class="number">1</span>; f &lt; nums.length; f++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[f] == nums[f - <span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="keyword">if</span> (cnt &lt; <span class="number">2</span>) &#123;</span><br><span class="line">                nums[cur++] = nums[f];</span><br><span class="line">            &#125;</span><br><span class="line">            cnt++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            nums[cur++] = nums[f];</span><br><span class="line">            cnt = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cur;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Discussion</strong><br>discussion里的大佬直接in place的去做，也是打开了新世界的大门。因为index 0 和 index i位永远是1。很明显的，计算下一行的时候需要上一行的值，如果从头修改肯定不行，下一位就缺少了[i-1][j-1]这个值。所以从尾部开始计算。<strong>要在每次循环开始时补上最末尾的1。</strong></p>
+<p><strong>j loop</strong>:</p>
+<blockquote>
+<p>for(int j=i-1;j&gt;0;j–) {res.set(j, res.get(j-1)+res.get(j));}</p>
+</blockquote>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">// discussion</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">getRow</span><span class="params">(<span class="keyword">int</span> rowIndex)</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; res = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;rowIndex+<span class="number">1</span>;i++) &#123;</span><br><span class="line">                res.add(<span class="number">1</span>);</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j=i-<span class="number">1</span>;j&gt;<span class="number">0</span>;j--) &#123;</span><br><span class="line">                    res.set(j, res.get(j-<span class="number">1</span>)+res.get(j));</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// my solution</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">getRow</span><span class="params">(<span class="keyword">int</span> rowIndex)</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; res = <span class="keyword">null</span>;</span><br><span class="line">        List&lt;Integer&gt; prev = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= rowIndex; i++) &#123;</span><br><span class="line">            res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i + <span class="number">1</span>; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (j == <span class="number">0</span> || j == i) &#123;</span><br><span class="line">                    res.add(<span class="number">1</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                   res.add(prev.get(j-<span class="number">1</span>) + prev.get(j));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            prev = res;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -465,14 +421,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Array/" rel="tag"># Array</a>
-          
-            <a href="/tags/Two-Pointers/" rel="tag"># Two Pointers</a>
-          
-        </div>
-      
 
       
       
@@ -482,8 +430,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/02/26-Remove-Duplicates-from-Sorted-Array/" rel="next" title="26. Remove Duplicates from Sorted Array">
-                <i class="fa fa-chevron-left"></i> 26. Remove Duplicates from Sorted Array
+              <a href="/2018/06/04/118-Pascal's-Triangle/" rel="next" title="118. Pascal's Triangle">
+                <i class="fa fa-chevron-left"></i> 118. Pascal's Triangle
               </a>
             
           </div>
@@ -492,8 +440,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/06/02/189-Rotate-Array/" rel="prev" title="189. Rotate Array">
-                189. Rotate Array <i class="fa fa-chevron-right"></i>
+              <a href="/2018/06/04/169-Majority-Elemnt/" rel="prev" title="169. Majority Elemnt">
+                169. Majority Elemnt <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -662,7 +610,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Question"><span class="nav-number">1.</span> <span class="nav-text">Question</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis"><span class="nav-number">2.</span> <span class="nav-text">Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Two-situation"><span class="nav-number">2.1.</span> <span class="nav-text">Two situation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Complexity"><span class="nav-number">3.</span> <span class="nav-text">Complexity</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">4.</span> <span class="nav-text">Solution</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Question"><span class="nav-number">1.</span> <span class="nav-text">Question</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis"><span class="nav-number">2.</span> <span class="nav-text">Analysis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">3.</span> <span class="nav-text">Solution</span></a></li></ol></div>
             
 
           </div>

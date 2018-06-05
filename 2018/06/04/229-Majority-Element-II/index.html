@@ -115,25 +115,25 @@
 
 
 
-  <meta name="description" content="QuestionGiven a sorted array nums, remove the duplicates in-place such that duplicates appeared at most twice and return the new length. Do not allocate extra space for another array, you must do this">
-<meta name="keywords" content="Array,Two Pointers">
+  <meta name="description" content="QuestionGiven an integer array of size n, find all elements that appear more than ⌊ n/3 ⌋ times. Note: The algorithm should run in linear time and in O(1) space. AnalysisMethod 1 HashMap: use HashMap">
+<meta name="keywords" content="Array,HashMap,Boyer-Moore majority vote Algorithm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="80. Remove Duplicates from Sorted Array II">
-<meta property="og:url" content="http://yoursite.com/2018/06/02/80-Remove-Duplicates-from-Sorted-Array-II/index.html">
+<meta property="og:title" content="229. Majority Element II">
+<meta property="og:url" content="http://yoursite.com/2018/06/04/229-Majority-Element-II/index.html">
 <meta property="og:site_name" content="MapleSYJ&#39;s blog">
-<meta property="og:description" content="QuestionGiven a sorted array nums, remove the duplicates in-place such that duplicates appeared at most twice and return the new length. Do not allocate extra space for another array, you must do this">
+<meta property="og:description" content="QuestionGiven an integer array of size n, find all elements that appear more than ⌊ n/3 ⌋ times. Note: The algorithm should run in linear time and in O(1) space. AnalysisMethod 1 HashMap: use HashMap">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-03T18:57:14.000Z">
+<meta property="og:updated_time" content="2018-06-05T05:38:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="80. Remove Duplicates from Sorted Array II">
-<meta name="twitter:description" content="QuestionGiven a sorted array nums, remove the duplicates in-place such that duplicates appeared at most twice and return the new length. Do not allocate extra space for another array, you must do this">
+<meta name="twitter:title" content="229. Majority Element II">
+<meta name="twitter:description" content="QuestionGiven an integer array of size n, find all elements that appear more than ⌊ n/3 ⌋ times. Note: The algorithm should run in linear time and in O(1) space. AnalysisMethod 1 HashMap: use HashMap">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/02/80-Remove-Duplicates-from-Sorted-Array-II/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/04/229-Majority-Element-II/"/>
 
 
 
@@ -143,7 +143,7 @@
   };
 </script>
 
-  <title>80. Remove Duplicates from Sorted Array II | MapleSYJ's blog</title>
+  <title>229. Majority Element II | MapleSYJ's blog</title>
   
 
 
@@ -304,7 +304,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/02/80-Remove-Duplicates-from-Sorted-Array-II/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/04/229-Majority-Element-II/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MapleSYJ">
@@ -321,7 +321,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">80. Remove Duplicates from Sorted Array II
+          <h1 class="post-title" itemprop="name headline">229. Majority Element II
               
             
           </h1>
@@ -346,24 +346,12 @@
                 
               
 
-              <time title="Created: 2018-06-02 12:27:39" itemprop="dateCreated datePublished" datetime="2018-06-02T12:27:39-07:00">2018-06-02</time>
+              <time title="Created: 2018-06-04 16:28:57 / Modified: 22:38:58" itemprop="dateCreated datePublished" datetime="2018-06-04T16:28:57-07:00">2018-06-04</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2018-06-03 11:57:14" itemprop="dateModified" datetime="2018-06-03T11:57:14-07:00">2018-06-03</time>
               
             
           </span>
@@ -421,33 +409,13 @@
       
 
       
-        <h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p>Given a sorted array nums, remove the duplicates in-place such that duplicates appeared at most twice and return the new length.</p>
-<p>Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.</p>
-<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>This question is the follow-up of <a href="../26-Remove-Duplicates-from-Sorted-Array/index.html">Remove-Duplicates-from Sorted Array</a>.</p>
-<h3 id="Two-situation"><a href="#Two-situation" class="headerlink" title="Two situation"></a>Two situation</h3><ol>
-<li>nums[fast] == nums[fast - 1]<ol>
-<li>cnt &lt; 2: <ul>
-<li>nums[cur++] = nums[f] (legal state)</li>
-<li>cnt++</li>
-</ul>
-</li>
-<li>cnt &gt;= 2: <ul>
-<li>cur doesn’t move</li>
-<li>cnt++</li>
-</ul>
-</li>
-</ol>
-</li>
-<li>nums[fast] == nums[fast - 1]<ul>
-<li>nums[cur++] = nums[f]</li>
-<li>cnt reset, cnt = 1</li>
-</ul>
-</li>
-</ol>
-<p><strong>本来在legal state这个部分没有想明白这里为什么需要交换, 本来认为legal state，cnt没有到2 所以只要cur++就可以了。 但在下面的情况</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">test case[0,0,1,1,1,1,2,3,3] 过不了。</span><br><span class="line">WA: [0,0,1,1,2,3,2]</span><br><span class="line">[0,0,1,1,2,1,2,3,3] cnt = 1</span><br><span class="line">         c     f</span><br><span class="line">[0,0,1,1,2,3,2,3,3] cnt = 1 此时cnt还没有增加，如果只是cur++则出现WA，</span><br><span class="line">           c     f</span><br></pre></td></tr></table></figure></p>
-<p>因为即使相同，第二个3没有在正确的位置上，换句话说就是<strong>只要是legal的就要换到正确的位置上因为fast的位置是不确定的, 正确的位置总是cur+1</strong></p>
-<h2 id="Complexity"><a href="#Complexity" class="headerlink" title="Complexity"></a>Complexity</h2><p>Time Complexity: O(n)</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeDuplicates</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (nums.length &lt; <span class="number">2</span>) <span class="keyword">return</span> nums.length;</span><br><span class="line">    <span class="keyword">int</span> cur = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> f = <span class="number">1</span>; f &lt; nums.length; f++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[f] == nums[f - <span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="keyword">if</span> (cnt &lt; <span class="number">2</span>) &#123;</span><br><span class="line">                nums[cur++] = nums[f];</span><br><span class="line">            &#125;</span><br><span class="line">            cnt++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            nums[cur++] = nums[f];</span><br><span class="line">            cnt = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cur;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p>Given an integer array of size n, find all elements that appear more than ⌊ n/3 ⌋ times.</p>
+<p>Note: The algorithm should run in linear time and in O(1) space.</p>
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>Method 1 HashMap:</p>
+<p>use HashMap to record how many time each element appear</p>
+<p>Method 2 Boyer-Moore majority vote Algorithm:</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Method 1 HashMap</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">majorityElement</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    HashMap&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> n : nums) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!map.containsKey(n)) &#123;</span><br><span class="line">            map.put(n, <span class="number">1</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            map.put(n, map.get(n) + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    List&lt;Integer&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (Map.Entry&lt;Integer, Integer&gt; entry : map.entrySet()) &#123;</span><br><span class="line">        <span class="keyword">if</span> (entry.getValue() &gt; nums.length / <span class="number">3</span>) &#123;</span><br><span class="line">            res. add(entry.getKey());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// Method 2 Boyer-Moore majority vote Algorithm</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">majorityElement</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">int</span> num1 = <span class="number">0</span>, num2 = <span class="number">1</span>;  </span><br><span class="line">    <span class="keyword">int</span> count1 = <span class="number">0</span>, count2 = <span class="number">0</span>;  </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> num: nums) &#123;  </span><br><span class="line">        <span class="keyword">if</span> (count1 == <span class="number">0</span>) &#123;  </span><br><span class="line">            num1 = num;  </span><br><span class="line">            count1 = <span class="number">1</span>;  </span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (num1 == num) &#123;  </span><br><span class="line">            count1 ++;  </span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (count2 == <span class="number">0</span>) &#123;  </span><br><span class="line">            num2 = num;  </span><br><span class="line">            count2 = <span class="number">1</span>;  </span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (num2 == num) &#123;  </span><br><span class="line">            count2 ++;  </span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">            count1 --;  </span><br><span class="line">            count2 --;  </span><br><span class="line">            <span class="keyword">if</span> (count1 == <span class="number">0</span> &amp;&amp; count2 &gt; <span class="number">0</span>) &#123;  </span><br><span class="line">                num1 = num2;  </span><br><span class="line">                count1 = count2;  </span><br><span class="line">                num2 = <span class="number">0</span>;  </span><br><span class="line">                count2 = <span class="number">0</span>;  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">if</span> (count1 &gt; <span class="number">0</span>) &#123;  </span><br><span class="line">        count1 = <span class="number">0</span>;  </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> num: nums) <span class="keyword">if</span> (num1 == num) count1 ++;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">if</span> (count2 &gt; <span class="number">0</span>) &#123;  </span><br><span class="line">        count2 = <span class="number">0</span>;  </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> num: nums) <span class="keyword">if</span> (num2 == num) count2 ++;  </span><br><span class="line">    &#125;  </span><br><span class="line">    List&lt;Integer&gt; results = <span class="keyword">new</span> ArrayList&lt;&gt;();  </span><br><span class="line">    <span class="keyword">if</span> (count1*<span class="number">3</span>&gt;nums.length) results.add(num1);  </span><br><span class="line">    <span class="keyword">if</span> (count2*<span class="number">3</span>&gt;nums.length) results.add(num2);  </span><br><span class="line">    <span class="keyword">return</span> results;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -469,7 +437,9 @@
           
             <a href="/tags/Array/" rel="tag"># Array</a>
           
-            <a href="/tags/Two-Pointers/" rel="tag"># Two Pointers</a>
+            <a href="/tags/HashMap/" rel="tag"># HashMap</a>
+          
+            <a href="/tags/Boyer-Moore-majority-vote-Algorithm/" rel="tag"># Boyer-Moore majority vote Algorithm</a>
           
         </div>
       
@@ -482,8 +452,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/02/26-Remove-Duplicates-from-Sorted-Array/" rel="next" title="26. Remove Duplicates from Sorted Array">
-                <i class="fa fa-chevron-left"></i> 26. Remove Duplicates from Sorted Array
+              <a href="/2018/06/04/169-Majority-Elemnt/" rel="next" title="169. Majority Elemnt">
+                <i class="fa fa-chevron-left"></i> 169. Majority Elemnt
               </a>
             
           </div>
@@ -492,8 +462,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/06/02/189-Rotate-Array/" rel="prev" title="189. Rotate Array">
-                189. Rotate Array <i class="fa fa-chevron-right"></i>
+              <a href="/2018/06/04/217-Contains-Duplicate/" rel="prev" title="217. Contains Duplicate">
+                217. Contains Duplicate <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -662,7 +632,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Question"><span class="nav-number">1.</span> <span class="nav-text">Question</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis"><span class="nav-number">2.</span> <span class="nav-text">Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Two-situation"><span class="nav-number">2.1.</span> <span class="nav-text">Two situation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Complexity"><span class="nav-number">3.</span> <span class="nav-text">Complexity</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">4.</span> <span class="nav-text">Solution</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Question"><span class="nav-number">1.</span> <span class="nav-text">Question</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis"><span class="nav-number">2.</span> <span class="nav-text">Analysis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">3.</span> <span class="nav-text">Solution</span></a></li></ol></div>
             
 
           </div>

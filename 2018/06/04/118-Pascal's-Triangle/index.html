@@ -115,25 +115,25 @@
 
 
 
-  <meta name="description" content="QuestionGiven a sorted array nums, remove the duplicates in-place such that duplicates appeared at most twice and return the new length. Do not allocate extra space for another array, you must do this">
-<meta name="keywords" content="Array,Two Pointers">
+  <meta name="description" content="QuestionGiven a non-negative integer numRows, generate the first numRows of Pascal’s triangle. Analysis除了0 和 i位固定为1，  其他位置  triangle[i][j] = triangle[i-1][j-1] + triangle[i-1][j-1]  ComplexityTime: O(">
+<meta name="keywords" content="Array">
 <meta property="og:type" content="article">
-<meta property="og:title" content="80. Remove Duplicates from Sorted Array II">
-<meta property="og:url" content="http://yoursite.com/2018/06/02/80-Remove-Duplicates-from-Sorted-Array-II/index.html">
+<meta property="og:title" content="118. Pascal&#39;s Triangle">
+<meta property="og:url" content="http://yoursite.com/2018/06/04/118-Pascal's-Triangle/index.html">
 <meta property="og:site_name" content="MapleSYJ&#39;s blog">
-<meta property="og:description" content="QuestionGiven a sorted array nums, remove the duplicates in-place such that duplicates appeared at most twice and return the new length. Do not allocate extra space for another array, you must do this">
+<meta property="og:description" content="QuestionGiven a non-negative integer numRows, generate the first numRows of Pascal’s triangle. Analysis除了0 和 i位固定为1，  其他位置  triangle[i][j] = triangle[i-1][j-1] + triangle[i-1][j-1]  ComplexityTime: O(">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-03T18:57:14.000Z">
+<meta property="og:updated_time" content="2018-06-04T21:52:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="80. Remove Duplicates from Sorted Array II">
-<meta name="twitter:description" content="QuestionGiven a sorted array nums, remove the duplicates in-place such that duplicates appeared at most twice and return the new length. Do not allocate extra space for another array, you must do this">
+<meta name="twitter:title" content="118. Pascal&#39;s Triangle">
+<meta name="twitter:description" content="QuestionGiven a non-negative integer numRows, generate the first numRows of Pascal’s triangle. Analysis除了0 和 i位固定为1，  其他位置  triangle[i][j] = triangle[i-1][j-1] + triangle[i-1][j-1]  ComplexityTime: O(">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/02/80-Remove-Duplicates-from-Sorted-Array-II/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/04/118-Pascal's-Triangle/"/>
 
 
 
@@ -143,7 +143,7 @@
   };
 </script>
 
-  <title>80. Remove Duplicates from Sorted Array II | MapleSYJ's blog</title>
+  <title>118. Pascal's Triangle | MapleSYJ's blog</title>
   
 
 
@@ -304,7 +304,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/02/80-Remove-Duplicates-from-Sorted-Array-II/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/04/118-Pascal's-Triangle/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MapleSYJ">
@@ -321,7 +321,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">80. Remove Duplicates from Sorted Array II
+          <h1 class="post-title" itemprop="name headline">118. Pascal's Triangle
               
             
           </h1>
@@ -346,24 +346,12 @@
                 
               
 
-              <time title="Created: 2018-06-02 12:27:39" itemprop="dateCreated datePublished" datetime="2018-06-02T12:27:39-07:00">2018-06-02</time>
+              <time title="Created: 2018-06-04 13:06:17 / Modified: 14:52:23" itemprop="dateCreated datePublished" datetime="2018-06-04T13:06:17-07:00">2018-06-04</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2018-06-03 11:57:14" itemprop="dateModified" datetime="2018-06-03T11:57:14-07:00">2018-06-03</time>
               
             
           </span>
@@ -421,33 +409,14 @@
       
 
       
-        <h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p>Given a sorted array nums, remove the duplicates in-place such that duplicates appeared at most twice and return the new length.</p>
-<p>Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.</p>
-<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>This question is the follow-up of <a href="../26-Remove-Duplicates-from-Sorted-Array/index.html">Remove-Duplicates-from Sorted Array</a>.</p>
-<h3 id="Two-situation"><a href="#Two-situation" class="headerlink" title="Two situation"></a>Two situation</h3><ol>
-<li>nums[fast] == nums[fast - 1]<ol>
-<li>cnt &lt; 2: <ul>
-<li>nums[cur++] = nums[f] (legal state)</li>
-<li>cnt++</li>
+        <h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p>Given a non-negative integer numRows, generate the first numRows of Pascal’s triangle.</p>
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>除了0 和 i位固定为1， </p>
+<p>其他位置</p>
+<ul>
+<li>triangle[i][j] = triangle[i-1][j-1] + triangle[i-1][j-1]</li>
 </ul>
-</li>
-<li>cnt &gt;= 2: <ul>
-<li>cur doesn’t move</li>
-<li>cnt++</li>
-</ul>
-</li>
-</ol>
-</li>
-<li>nums[fast] == nums[fast - 1]<ul>
-<li>nums[cur++] = nums[f]</li>
-<li>cnt reset, cnt = 1</li>
-</ul>
-</li>
-</ol>
-<p><strong>本来在legal state这个部分没有想明白这里为什么需要交换, 本来认为legal state，cnt没有到2 所以只要cur++就可以了。 但在下面的情况</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">test case[0,0,1,1,1,1,2,3,3] 过不了。</span><br><span class="line">WA: [0,0,1,1,2,3,2]</span><br><span class="line">[0,0,1,1,2,1,2,3,3] cnt = 1</span><br><span class="line">         c     f</span><br><span class="line">[0,0,1,1,2,3,2,3,3] cnt = 1 此时cnt还没有增加，如果只是cur++则出现WA，</span><br><span class="line">           c     f</span><br></pre></td></tr></table></figure></p>
-<p>因为即使相同，第二个3没有在正确的位置上，换句话说就是<strong>只要是legal的就要换到正确的位置上因为fast的位置是不确定的, 正确的位置总是cur+1</strong></p>
-<h2 id="Complexity"><a href="#Complexity" class="headerlink" title="Complexity"></a>Complexity</h2><p>Time Complexity: O(n)</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeDuplicates</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (nums.length &lt; <span class="number">2</span>) <span class="keyword">return</span> nums.length;</span><br><span class="line">    <span class="keyword">int</span> cur = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> f = <span class="number">1</span>; f &lt; nums.length; f++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[f] == nums[f - <span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="keyword">if</span> (cnt &lt; <span class="number">2</span>) &#123;</span><br><span class="line">                nums[cur++] = nums[f];</span><br><span class="line">            &#125;</span><br><span class="line">            cnt++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            nums[cur++] = nums[f];</span><br><span class="line">            cnt = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cur;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Complexity"><a href="#Complexity" class="headerlink" title="Complexity"></a>Complexity</h2><p>Time: O(n)</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; generate(<span class="keyword">int</span> numRows) &#123;</span><br><span class="line">    List&lt;List&lt;Integer&gt;&gt; triangle = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">if</span> (numRows &lt;= <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> triangle;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numRows; i++) &#123;</span><br><span class="line">        List&lt;Integer&gt; row = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i + <span class="number">1</span>; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (j == <span class="number">0</span> || j == i) &#123;</span><br><span class="line">                row.add(<span class="number">1</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                row.add(triangle.get(i-<span class="number">1</span>).get(j-<span class="number">1</span>) + triangle.get(i-<span class="number">1</span>).get(j));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; </span><br><span class="line">        triangle.add(row);  </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> triangle;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -469,8 +438,6 @@
           
             <a href="/tags/Array/" rel="tag"># Array</a>
           
-            <a href="/tags/Two-Pointers/" rel="tag"># Two Pointers</a>
-          
         </div>
       
 
@@ -482,8 +449,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/02/26-Remove-Duplicates-from-Sorted-Array/" rel="next" title="26. Remove Duplicates from Sorted Array">
-                <i class="fa fa-chevron-left"></i> 26. Remove Duplicates from Sorted Array
+              <a href="/2018/06/04/134-Gas-Station/" rel="next" title="134. Gas Station">
+                <i class="fa fa-chevron-left"></i> 134. Gas Station
               </a>
             
           </div>
@@ -492,8 +459,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/06/02/189-Rotate-Array/" rel="prev" title="189. Rotate Array">
-                189. Rotate Array <i class="fa fa-chevron-right"></i>
+              <a href="/2018/06/04/119-Pascal-s-Triangle-II/" rel="prev" title="119. Pascal's Triangle II">
+                119. Pascal's Triangle II <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -662,7 +629,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Question"><span class="nav-number">1.</span> <span class="nav-text">Question</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis"><span class="nav-number">2.</span> <span class="nav-text">Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Two-situation"><span class="nav-number">2.1.</span> <span class="nav-text">Two situation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Complexity"><span class="nav-number">3.</span> <span class="nav-text">Complexity</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">4.</span> <span class="nav-text">Solution</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Question"><span class="nav-number">1.</span> <span class="nav-text">Question</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis"><span class="nav-number">2.</span> <span class="nav-text">Analysis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Complexity"><span class="nav-number">3.</span> <span class="nav-text">Complexity</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">4.</span> <span class="nav-text">Solution</span></a></li></ol></div>
             
 
           </div>
