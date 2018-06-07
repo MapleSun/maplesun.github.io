@@ -115,24 +115,25 @@
 
 
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="QuestionGiven an unsorted array return whether an increasing subsequence of length 3 exists or not in the array. Formally the function should:  Return true if there exists i, j, k, such that arr[i] &amp;l">
+<meta name="keywords" content="Array">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2018/03/26/hello-world/index.html">
+<meta property="og:title" content="334. Increasing Triplet Subsequence">
+<meta property="og:url" content="http://yoursite.com/2018/06/06/334-Increasing-Triplet-Subsequence/index.html">
 <meta property="og:site_name" content="MapleSYJ&#39;s blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="QuestionGiven an unsorted array return whether an increasing subsequence of length 3 exists or not in the array. Formally the function should:  Return true if there exists i, j, k, such that arr[i] &amp;l">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-03-26T07:48:26.000Z">
+<meta property="og:updated_time" content="2018-06-07T04:53:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="334. Increasing Triplet Subsequence">
+<meta name="twitter:description" content="QuestionGiven an unsorted array return whether an increasing subsequence of length 3 exists or not in the array. Formally the function should:  Return true if there exists i, j, k, such that arr[i] &amp;l">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/26/hello-world/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/06/334-Increasing-Triplet-Subsequence/"/>
 
 
 
@@ -142,7 +143,7 @@
   };
 </script>
 
-  <title>Hello World | MapleSYJ's blog</title>
+  <title>334. Increasing Triplet Subsequence | MapleSYJ's blog</title>
   
 
 
@@ -303,7 +304,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/26/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/06/334-Increasing-Triplet-Subsequence/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MapleSYJ">
@@ -320,7 +321,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World
+          <h1 class="post-title" itemprop="name headline">334. Increasing Triplet Subsequence
               
             
           </h1>
@@ -345,12 +346,41 @@
                 
               
 
-              <time title="Created: 2018-03-26 00:48:26" itemprop="dateCreated datePublished" datetime="2018-03-26T00:48:26-07:00">2018-03-26</time>
+              <time title="Created: 2018-06-06 21:37:40 / Modified: 21:53:05" itemprop="dateCreated datePublished" datetime="2018-06-06T21:37:40-07:00">2018-06-06</time>
             
 
+            
+              
+
+              
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/LeetCode/Array/" itemprop="url" rel="index"><span itemprop="name">Array</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -379,16 +409,19 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+        <h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p>Given an unsorted array return whether an increasing subsequence of length 3 exists or not in the array.</p>
+<p>Formally the function should:</p>
+<blockquote>
+<p>Return true if there exists i, j, k, such that arr[i] &lt; arr[j] &lt; arr[k] &lt;= n-1 else return false</p>
+</blockquote>
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>需要找到最小的和中间的，满足最小的 永远 小于中间的，</p>
+<ol>
+<li>当 <code>nums[i] &lt; small</code> 其实我们并不关心，我们只关心此时是否有比中间值更大的数</li>
+<li>当 <code>small &lt; nums[i] &lt; mid</code> 此时更新中间值mid，原来 <code>small mid</code> -&gt; <code>small mid nums[i]</code>  -&gt; <code>small old_mid mid</code></li>
+<li>当 <code>small &lt; mid &lt; nums[i]</code>  此时找到triplet sequence</li>
+</ol>
+<h2 id="Compleixty"><a href="#Compleixty" class="headerlink" title="Compleixty"></a>Compleixty</h2><p>Time: O(n)<br>Space: O(1)</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">increasingTriplet</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> small = Integer.MAX_VALUE, big = Integer.MAX_VALUE;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> n : nums) &#123;</span><br><span class="line">        <span class="keyword">if</span> (n &lt;= small) &#123;</span><br><span class="line">            small = n;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (n &lt;= big) &#123;</span><br><span class="line">            big = n;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -406,6 +439,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Array/" rel="tag"># Array</a>
+          
+        </div>
+      
 
       
       
@@ -415,14 +454,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/06/06/42-Trapping-Rain-Water/" rel="next" title="42. Trapping Rain Water">
+                <i class="fa fa-chevron-left"></i> 42. Trapping Rain Water
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/06/01/92. Backpack/" rel="prev" title="92. Backpack">
-                92. Backpack <i class="fa fa-chevron-right"></i>
+              <a href="/2018/06/06/128-Longest-Consecutive-Sequence/" rel="prev" title="128. Longest Consecutive Sequence">
+                128. Longest Consecutive Sequence <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -591,7 +634,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Question"><span class="nav-number">1.</span> <span class="nav-text">Question</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis"><span class="nav-number">2.</span> <span class="nav-text">Analysis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Compleixty"><span class="nav-number">3.</span> <span class="nav-text">Compleixty</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">4.</span> <span class="nav-text">Solution</span></a></li></ol></div>
             
 
           </div>
